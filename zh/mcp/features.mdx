@@ -1,0 +1,53 @@
+---
+title: 功能
+description: Next PaymentOS MCP 工具目录 —— 查询、起草、提交，以及绝不存在的动作。
+---
+
+# 功能
+
+服务将支付操作以类型化工具暴露，并按类别分组。共发放三种作用域——`payos:read`、`payos:draft`、`payos:submit`——分别映射到一个工具类别。
+
+## 沙盒目录（已上线）
+
+**查询（7 个）**
+
+- `get_accounts` —— 列出账户。
+- `get_balances` —— 当前余额。
+- `get_transactions` —— 交易历史。
+- `get_beneficiaries` —— 已筛查的收款人目录。
+- `get_payout_status` —— 支付全生命周期状态。
+- `get_fx_reference` —— 汇率参考（不可执行）。
+- `get_compliance_status` —— 自身工作流的合规状态。
+
+**起草（2 个）**
+
+- `draft_payout` —— 起草单笔或批量付款。
+- `prepare_reconciliation` —— 准备账单匹配。
+
+**提交（2 个）**
+
+- `submit_for_approval` —— 将草稿提交给指定负责人。
+- `get_approval_status` —— 查询由谁、何时、如何决策。
+
+## 后续迭代（3 个）
+
+`classify_transaction` · `collect_missing_documents` · `propose_corridor`
+
+## 延后（B/C 阶段，5 个）
+
+`draft_on_ramp_request` · `draft_off_ramp_request` · `submit_for_screening` · `attach_evidence` · `request_named_approver`
+
+## 禁止项——永不存在的动作
+
+这些动作在接口中不存在，任何作用域都无法请求。对禁止动作的 token 请求会产生显式、可审计的 `invalid_scope`——而非静默遗漏。
+
+| 动作 | 原因 |
+| --- | --- |
+| `release_funds` | 仅限合作伙伴控制台 |
+| `approve` | 仅限指定负责人 |
+| `policy:write` | 策略由人工掌控 |
+| `wallet:sign` | 仅限 MPC 系统，绝不经过 MCP |
+
+## 示例
+
+> 对智能体说：「查询我们的美元余额，并为 *[收款人]* 起草一笔付款以供审查。」

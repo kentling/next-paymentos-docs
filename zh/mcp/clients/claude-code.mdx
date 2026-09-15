@@ -1,0 +1,30 @@
+---
+title: Claude Code
+description: 将 Next PaymentOS MCP 连接到 Claude Code CLI。
+---
+
+# Claude Code
+
+## 配置
+
+1. **注册服务。** 打开终端并运行：
+
+   ```bash
+   claude mcp add next-paymentos --scope user --transport http https://api.nextpaymentos.com/mcp
+   ```
+
+2. **打开 MCP 菜单。** 启动一个新的 Claude Code 会话并运行：
+
+   ```bash
+   claude /mcp
+   ```
+
+   在 MCP 服务列表中，选择 `next-paymentos`。
+
+3. **授权。** 选择「验证」，并用你的 Next PaymentOS 账户登录。
+
+## 使用
+
+连接后，可尝试：
+
+> 查询我的美元余额，并为 *[收款人]* 起草一笔付款以供审查。

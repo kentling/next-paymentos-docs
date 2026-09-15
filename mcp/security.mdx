@@ -1,0 +1,32 @@
+---
+title: Security
+description: How Next PaymentOS MCP keeps agents governed and money behind named humans.
+---
+
+# Security
+
+The MCP surface is built around one invariant: an agent can move work forward, never money.
+
+## Tool classes
+
+Tools are grouped into read, draft, and submit classes. Each scope (`payos:read`, `payos:draft`, `payos:submit`) unlocks one class. Prohibited verbs have no scope and no tool.
+
+## Human approval
+
+`submit_for_approval` routes work to a named human in the Next PaymentOS approval queue. Nothing auto-approves. The same principal can never submit and approve the same object.
+
+## Isolation
+
+- **Token isolation** — tokens never enter model context, tool results, or logs.
+- **Tenant isolation** — `tenant_id` is read from the validated token, never from tool arguments.
+- **Static catalogue** — the tool set is versioned and fixed; no dynamic tool registration.
+
+## Safety controls
+
+- **Kill switch** — a named owner can disable the surface, a client, or an agent in one action.
+- **Audit** — every call produces a correlated, tamper-evident event.
+- **Rate limits** — enforced per tool class, with circuit breakers.
+
+## Scope of this doc
+
+This page describes the target architecture. The live surface is sandbox-only until the production gates pass: signed partner contract, independent security review, passing sandbox suite, and a named operational owner.

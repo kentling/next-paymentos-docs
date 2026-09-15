@@ -1,0 +1,30 @@
+---
+title: Claude Code
+description: Connect Next PaymentOS MCP to Claude Code CLI.
+---
+
+# Claude Code
+
+## Setup
+
+1. **Register the server.** Open a terminal and run:
+
+   ```bash
+   claude mcp add next-paymentos --scope user --transport http https://api.nextpaymentos.com/mcp
+   ```
+
+2. **Open the MCP menu.** Start a new Claude Code session and run:
+
+   ```bash
+   claude /mcp
+   ```
+
+   In the list of MCP servers, select `next-paymentos`.
+
+3. **Authorize.** Select Authenticate and sign in with your Next PaymentOS account.
+
+## Usage
+
+Once connected, try:
+
+> Search my USD balance and draft a payout to *[recipient]* for review.

@@ -1,0 +1,31 @@
+---
+title: Cursor
+description: 将 Next PaymentOS MCP 连接到 Cursor。
+---
+
+# Cursor
+
+## 配置
+
+1. **打开 MCP 设置。** 在 Cursor 中前往 **设置 > Tools & MCPs**。在「Installed MCP Servers」下，点击「New MCP server」以打开你的 `mcp.json` 配置文件。
+2. **添加服务配置。** 粘贴：
+
+   ```json
+   {
+     "mcpServers": {
+       "Next PaymentOS": {
+         "type": "http",
+         "url": "https://api.nextpaymentos.com/mcp",
+         "headers": {}
+       }
+     }
+   }
+   ```
+
+3. **授权。** 找到 Next PaymentOS 服务并点击 **Connect**。用你的 Next PaymentOS 账户登录。
+
+## 使用
+
+连接后，可尝试：
+
+> 查询我的美元余额，并为 *[收款人]* 起草一笔付款以供审查。

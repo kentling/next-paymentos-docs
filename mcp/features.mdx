@@ -1,0 +1,53 @@
+---
+title: Features
+description: The Next PaymentOS MCP tool catalogue — read, draft, submit, and the verbs that never exist.
+---
+
+# Features
+
+The server exposes payment operations as typed tools, grouped into classes. Three scopes are issued — `payos:read`, `payos:draft`, `payos:submit` — each mapped to a tool class.
+
+## Sandbox catalogue (live)
+
+**Read (7)**
+
+- `get_accounts` — list accounts.
+- `get_balances` — current balances.
+- `get_transactions` — transaction history.
+- `get_beneficiaries` — screened recipient directory.
+- `get_payout_status` — lifecycle of a payment.
+- `get_fx_reference` — FX reference (not executable).
+- `get_compliance_status` — own-workflow compliance state.
+
+**Draft (2)**
+
+- `draft_payout` — draft a single or batch payout.
+- `prepare_reconciliation` — prepare statement matching.
+
+**Submit (2)**
+
+- `submit_for_approval` — route a draft to a named human.
+- `get_approval_status` — poll who, when, and the decision.
+
+## Next iteration (3)
+
+`classify_transaction` · `collect_missing_documents` · `propose_corridor`
+
+## Deferred (Phase B/C, 5)
+
+`draft_on_ramp_request` · `draft_off_ramp_request` · `submit_for_screening` · `attach_evidence` · `request_named_approver`
+
+## Prohibited — never exist
+
+These verbs do not exist on the surface and cannot be requested by any scope. A token request for a prohibited verb produces an explicit, audited `invalid_scope` — not a silent gap.
+
+| Verb | Why |
+| --- | --- |
+| `release_funds` | Partner console only |
+| `approve` | Named human only |
+| `policy:write` | Policy is human-owned |
+| `wallet:sign` | MPC systems only, never MCP |
+
+## Example
+
+> Ask your agent: "Check our USD balance and draft a payout to *[recipient]* for review."

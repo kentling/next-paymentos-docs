@@ -1,0 +1,31 @@
+---
+title: Cursor
+description: Connect Next PaymentOS MCP to Cursor.
+---
+
+# Cursor
+
+## Setup
+
+1. **Open MCP settings.** In Cursor, go to **Settings > Tools & MCPs**. Under "Installed MCP Servers", click "New MCP server" to open your `mcp.json` config file.
+2. **Add the server config.** Paste:
+
+   ```json
+   {
+     "mcpServers": {
+       "Next PaymentOS": {
+         "type": "http",
+         "url": "https://api.nextpaymentos.com/mcp",
+         "headers": {}
+       }
+     }
+   }
+   ```
+
+3. **Authorize.** Find the Next PaymentOS server and click **Connect**. Sign in with your Next PaymentOS account.
+
+## Usage
+
+Once connected, try:
+
+> Search my USD balance and draft a payout to *[recipient]* for review.

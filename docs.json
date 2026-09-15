@@ -1,0 +1,63 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Next PaymentOS MCP",
+  "colors": {
+    "primary": "#2ec38a",
+    "light": "#0f9d63",
+    "dark": "#2ec38a"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "pages": [
+      {
+        "group": "MCP",
+        "pages": ["mcp/introduction", "mcp/features"]
+      },
+      {
+        "group": "Connect a client",
+        "pages": [
+          "mcp/clients/overview",
+          "mcp/clients/claude-desktop-web",
+          "mcp/clients/claude-code",
+          "mcp/clients/cursor",
+          "mcp/clients/chatgpt",
+          "mcp/clients/other"
+        ]
+      },
+      {
+        "group": "Manage access",
+        "pages": ["mcp/security", "mcp/revoke"]
+      },
+      {
+        "group": "简体中文",
+        "pages": [
+          "zh/mcp/introduction",
+          "zh/mcp/features",
+          "zh/mcp/clients/overview",
+          "zh/mcp/clients/claude-desktop-web",
+          "zh/mcp/clients/claude-code",
+          "zh/mcp/clients/cursor",
+          "zh/mcp/clients/chatgpt",
+          "zh/mcp/clients/other",
+          "zh/mcp/security",
+          "zh/mcp/revoke"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      { "label": "Website", "href": "https://next-paymentos.vercel.app" }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "MCP Settings",
+      "href": "https://next-paymentos.vercel.app/settings/mcp.html"
+    }
+  }
+}

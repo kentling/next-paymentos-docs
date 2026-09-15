@@ -1,0 +1,32 @@
+---
+title: Introduction
+description: Connect AI clients to Next PaymentOS through MCP — governed by design.
+---
+
+# Introduction
+
+Next PaymentOS MCP lets AI tools and coding agents work with your payment operations directly: read balances, draft payouts, prepare reconciliation, and submit work for review — through a governed, allowlisted surface.
+
+It exposes one server over the [Streamable HTTP transport](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) and authorizes with OAuth 2.1, so most MCP clients handle the connection automatically. When you connect for the first time, your client opens a browser window to authorize Next PaymentOS. No API key or manual token setup is needed.
+
+<Info>
+**Sandbox only.** The MCP surface runs in the sandbox environment today. Production access requires a signed partner contract, an independent security review, a passing sandbox suite, and a named operational owner — none complete yet. Regulated outcomes remain *Partner review* or *Compliance review*, subject to jurisdiction. No real funds move.
+</Info>
+
+## Agents draft; they do not release
+
+The MCP publishes read, draft, and submit tools only. No agent can release funds, approve, or change policy — at any scope, tier, or phase. Every release requires a named human.
+
+| Capability | Who can do it |
+| --- | --- |
+| Read balances, transactions, beneficiaries, status | AI agent (scoped) |
+| Draft payouts and reconciliation | AI agent (scoped) |
+| Submit for review | AI agent (scoped) |
+| Approve | Named human only |
+| Release funds | Partner console only, never MCP |
+
+## Next steps
+
+- [See what the server can do](/mcp/features) — the tool catalogue.
+- [Set up your MCP client](/mcp/clients/overview) — step-by-step per client.
+- [How access is governed](/mcp/security) — tool classes, isolation, and the kill switch.
